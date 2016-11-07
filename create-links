@@ -1,0 +1,16 @@
+#!/bin/bash -eu
+
+shopt -s nullglob
+for f in /x-tools/*-unknown-linux-*/bin/*-unknown-linux-*
+do
+    g=$(basename "$f")
+    ln -vs "$f" "/usr/bin/$g"
+    ln -vs "$f" "/usr/bin/${g//-unknown/}"
+done
+
+for f in /usr/bin/aarch64-linux-gnueabi-*
+do
+    g=$(basename "$f")
+    mv -v "$f" "/usr/bin/${g//eabi/}"
+done
+shopt -u nullglob
