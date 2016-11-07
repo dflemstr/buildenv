@@ -15,8 +15,8 @@ RUN /home/build/install $target && rm /home/build/install
 
 WORKDIR /root
 USER root
-COPY create-links /root/create-links
-RUN /root/create-links && rm /root/create-links
+COPY install-post /root/install-post
+RUN /root/install-post && rm /root/install-post
 
 WORKDIR /home/build
 USER build
