@@ -35,6 +35,7 @@ install_deps() {
 mk_crosstool_ng() {
   git clone https://github.com/crosstool-ng/crosstool-ng.git
   pushd crosstool-ng
+  ./bootstrap
   ./configure --prefix=/usr/local
   make
   make install
