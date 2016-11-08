@@ -47,9 +47,7 @@ mk_make() {
 }
 
 mk_crosstool_ng() {
-  local version=1.22.0
-
-  curl http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-${version}.tar.bz2 | tar xj
+  git clone https://github.com/crosstool-ng/crosstool-ng.git
   pushd crosstool-ng
   ./configure --prefix=/usr/local
   make
