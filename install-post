@@ -4,8 +4,14 @@ shopt -s nullglob
 for f in /x-tools/*-unknown-linux-*/bin/*-unknown-linux-*
 do
     g=$(basename "$f")
-    ln -vs "$f" "/usr/bin/$g"
-    ln -vs "$f" "/usr/bin/${g//-unknown/}"
+
+    if [ ! -e "/usr/bin/$g" ]
+    then ln -vs "$f" "/usr/bin/$g"
+    fi
+
+    if [ ! -e "/usr/bin/${g//-unknown/}" ]
+    then ln -vs "$f" "/usr/bin/${g//-unknown/}"
+    fi
 done
 
 for f in /usr/bin/aarch64-linux-gnueabi-*
