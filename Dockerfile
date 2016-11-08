@@ -1,4 +1,4 @@
-FROM ubuntu:16.11
+FROM ubuntu:16.10
 
 WORKDIR /root
 
