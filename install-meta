@@ -32,20 +32,6 @@ install_deps() {
   rm -rf /var/lib/apt/lists/*
 }
 
-# gcc-4.8 can't be built with the make-4 that's ships with Ubuntu 15.10. This overrides it with
-# make-3
-mk_make() {
-  local version=3.81
-
-  curl ftp://ftp.gnu.org/gnu/make/make-${version}.tar.gz | tar xz
-  pushd make-${version}
-  ./configure --prefix=/usr
-  make
-  make install
-  popd
-  rm -rf make-${version}
-}
-
 mk_crosstool_ng() {
   git clone https://github.com/crosstool-ng/crosstool-ng.git
   pushd crosstool-ng
@@ -68,6 +54,5 @@ create_user() {
 }
 
 install_deps
-mk_make
 mk_crosstool_ng
 create_user
