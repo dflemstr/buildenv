@@ -5,7 +5,7 @@ install_deps() {
   export DEBIAN_FRONTEND=noninteractive
   apt-get install -y --no-install-recommends \
     automake bison bzip2 ca-certificates curl flex g++ gawk gperf help2man libncurses-dev \
-    libtool-bin make texinfo patch wget
+    libtool-bin make texinfo patch wget sudo
   rm -rf /var/lib/apt/lists/*
 }
 
@@ -36,7 +36,8 @@ mk_crosstool_ng() {
 }
 
 create_user() {
-  groupadd -r build && useradd -m -r -g build build
+  groupadd -r build
+  useradd -m -r -g build build
   mkdir /x-tools
   chown build:build /x-tools
 }
