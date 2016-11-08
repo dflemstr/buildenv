@@ -4,13 +4,9 @@ target=$1
 mk-toolchain() {
     pushd "$target"
     ct-ng oldconfig
-    ct-ng build -j$(nproc)
+    ct-ng build "-j$(nproc)"
     rm -rf .build
     popd
 }
 
-main() {
-    mk-toolchain
-}
-
-main
+mk-toolchain

@@ -20,4 +20,3 @@ do
     mv -v "$f" "/usr/bin/${g//eabi/}"
 done
 shopt -u nullglob
-

@@ -19,3 +19,4 @@ COPY install-post /root/install-post
 RUN /root/install-post && rm /root/install-post
 
 WORKDIR /build
+USER build
