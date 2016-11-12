@@ -2,10 +2,12 @@
 
 packages=(
     automake
+    binfmt-support
     bison
     build-essential
     bzip2
     ca-certificates
+    clang
     curl
     flex
     g++-multilib
@@ -14,12 +16,14 @@ packages=(
     git
     gperf
     help2man
+    libclang-dev
     libglib2.0-dev
     libncurses-dev
     libtool-bin
     make
     patch
     python
+    qemu-user-static
     sudo
     texinfo
     wget
